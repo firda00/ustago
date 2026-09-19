@@ -1,0 +1,3 @@
+## 2026-09-19 - Accessibility improvements for icon-only buttons
+**Learning:** Found multiple icon-only buttons lacking proper ARIA labels and focus states, leading to poor keyboard accessibility and screen reader experience. Discovered that the app relies on a localization object (`t`) for strings. Hardcoded text must be avoided even for hidden properties like `aria-label`. It's crucial not to overwrite text-based buttons like the one returning from AuthView, which already contained semantic text via a `<T>` component.
+**Action:** When applying ARIA attributes, always use the localization dictionary (`t.back`, `t.logout`, etc.) to keep accessibility consistent with app language. Applied `focus-visible:ring-2` to improve keyboard navigation visibility.
