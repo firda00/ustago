@@ -1,0 +1,3 @@
+## 2025-02-15 - Missing ARIA labels and focus states on icon-only buttons
+**Learning:** The application heavily relies on lucide-react icons for primary actions (admin nav, edit content, logout, delete) but lacks accessible names (aria-labels) and visible focus states for keyboard navigation. A pattern was found where `<button>` tags wrapping `<Icon />` components completely lack accessibility attributes.
+**Action:** Always verify icon-only buttons in new components to ensure they have an `aria-label` (using translation variables like `t.admin` when possible) and `focus-visible:ring-2 focus-visible:ring-black outline-none` applied for keyboard accessibility.

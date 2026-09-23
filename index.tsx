@@ -620,12 +620,13 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button aria-label={t.admin} onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 outline-none"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
+              aria-label="Toggle Live Content Sync"
               onClick={() => setEditMode(!editMode)} 
-              className={`p-2 rounded-xl transition-all ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
+              className={`p-2 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 outline-none ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
               title="Toggle Live Content Sync"
             >
               <Edit3 size={18} />
@@ -1409,7 +1410,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button aria-label={t.logout} onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 outline-none">
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
@@ -1799,7 +1800,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
                     />
                   </div>
                   <div className="text-right">
-                    <button onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all"><Trash2 size={20}/></button>
+                    <button aria-label="Remove service" onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><Trash2 size={20}/></button>
                   </div>
                 </div>
               ))}
