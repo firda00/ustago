@@ -604,12 +604,12 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-white pb-24 transition-colors duration-500 text-black">
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 px-6 flex justify-between items-center ${scrolled || view !== 'landing' ? 'glass-nav border-b border-gray-100 shadow-sm' : 'bg-transparent'}`}>
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setView('landing')}>
+        <button aria-label={t.home} className="flex items-center gap-3 cursor-pointer group focus-visible:ring-2 focus-visible:ring-black outline-none rounded-xl p-1" onClick={() => setView('landing')}>
           <div className="bg-[#e31837] p-2.5 rounded-2xl shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
             <Wrench size={20} className="text-white"/>
           </div>
           <span className="text-xl md:text-2xl font-black uppercase tracking-tighter italic text-black">USTA.GO</span>
-        </div>
+        </button>
         
         <div className="hidden lg:flex gap-8 items-center">
            <button onClick={() => setView('service')} className="text-[10px] font-black uppercase tracking-widest hover:text-[#e31837] transition-colors"><T k="serviceList">{t.serviceList}</T></button>
@@ -620,12 +620,13 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button aria-label={t.admin} onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
+              aria-label="Toggle Live Content Sync"
               onClick={() => setEditMode(!editMode)} 
-              className={`p-2 rounded-xl transition-all ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
+              className={`p-2 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
               title="Toggle Live Content Sync"
             >
               <Edit3 size={18} />
@@ -860,7 +861,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
             {data.lat ? <T k="locationShared">{t.locationShared}</T> : <T k="shareLocation">{t.shareLocation}</T>}
           </button>
 
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button aria-label={t.back} onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -878,7 +879,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           <div className="space-y-1"><p className="text-[9px] md:text-[10px] font-black uppercase text-gray-400 px-2 tracking-widest"><T k="yearLabel">{t.yearLabel}</T></p>
             <input type="number" placeholder="2020" value={data.year} className="w-full bg-gray-50 p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] font-black text-sm text-center uppercase" onChange={e => setData({...data, year: e.target.value})} />
           </div>
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button aria-label={t.back} onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -925,7 +926,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           )}
 
           <div className="flex gap-3 md:gap-4 pt-4">
-            <button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button>
+            <button aria-label={t.back} onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button>
             {!data.isImmediate && (
               <button onClick={next} disabled={!data.date} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl disabled:opacity-20"><T k="next">{t.next}</T></button>
             )}
@@ -941,7 +942,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           <div className="space-y-1"><p className="text-[9px] md:text-[10px] font-black uppercase text-gray-400 px-2 tracking-widest"><T k="plateLabel">{t.plateLabel}</T>*</p>
             <input placeholder="01 A 777 AA" value={data.plate} className="w-full bg-gray-50 p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] font-black text-sm text-center uppercase" onChange={e => setData({...data, plate: e.target.value})} />
           </div>
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.phone || !data.plate} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button aria-label={t.back} onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.phone || !data.plate} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -959,7 +960,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
             <div className="h-px bg-white/10 my-4"></div>
             <div className="text-center italic pt-2"><span className="text-xl md:text-2xl font-black uppercase tracking-tighter"><T k="readySync">{t.readySync}</T></span></div>
           </div>
-          <div className="flex gap-3 md:gap-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={handleFinish} className="flex-1 bg-[#e31837] text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all"><CheckCircle2 size={18}/> <T k="submit">{t.submit}</T></button></div>
+          <div className="flex gap-3 md:gap-4"><button aria-label={t.back} onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={handleFinish} className="flex-1 bg-[#e31837] text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all"><CheckCircle2 size={18}/> <T k="submit">{t.submit}</T></button></div>
         </div>
       )}
     </div>
@@ -1113,7 +1114,7 @@ const SupportView = ({ t }: any) => {
           </div>
           <div className="p-4 md:p-8 bg-white border-t border-gray-100 flex gap-3 md:gap-4">
             <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && send()} placeholder="Transmit protocol..." className="flex-1 bg-gray-50 p-4 md:p-5 rounded-xl md:rounded-2xl text-sm font-black uppercase text-center outline-none focus:ring-4 ring-[#e31837]/10" />
-            <button onClick={send} className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95"><Send size={20}/></button>
+            <button aria-label={t.submit} onClick={send} className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95 focus-visible:ring-2 focus-visible:ring-black outline-none"><Send size={20}/></button>
           </div>
        </div>
     </div>
@@ -1209,7 +1210,7 @@ const AuthView = ({ t, lang, onAuth }: any) => {
         {authStep === 2 && (
           <div className="space-y-6 max-h-[65vh] overflow-y-auto no-scrollbar p-1 text-left">
             {authMode === 'register' && (
-              <button onClick={() => setAuthStep(1)} className="text-[#e31837] text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4 mx-auto text-center"><ArrowLeft size={16}/> <T k="back">{t.back}</T></button>
+              <button onClick={() => setAuthStep(1)} className="text-[#e31837] text-[10px] font-black uppercase tracking-widest flex items-center gap-2 mb-4 mx-auto text-center focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={16}/> <T k="back">{t.back}</T></button>
             )}
             
             <div className="space-y-4">
@@ -1409,7 +1410,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button aria-label={t.logout} onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-black outline-none">
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
@@ -1580,7 +1581,7 @@ const MasterDocsView = ({ t, setView }: any) => {
   return (
     <div className="px-6 py-12 max-w-4xl mx-auto space-y-12 animate-in slide-in-from-bottom-8 text-center">
       <div className="flex items-center gap-6 mb-8 justify-center">
-        <button onClick={() => setView('dashboard')} className="p-4 bg-gray-100 rounded-2xl text-gray-400 hover:text-black transition-all">
+        <button aria-label={t.backDashboard} onClick={() => setView('dashboard')} className="p-4 bg-gray-100 rounded-2xl text-gray-400 hover:text-black transition-all focus-visible:ring-2 focus-visible:ring-black outline-none">
           <ArrowLeft size={24}/>
         </button>
         <h1 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-black leading-none">
@@ -1682,7 +1683,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
             <Activity size={14} className="text-[#e31837]"/> System Online (UstaGo Node V3.4)
           </p>
         </div>
-        <button onClick={() => setView('dashboard')} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all"><ArrowLeft size={24}/></button>
+        <button aria-label={t.backDashboard} onClick={() => setView('dashboard')} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={24}/></button>
       </div>
 
       {/* Stats Cards */}
@@ -1799,7 +1800,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
                     />
                   </div>
                   <div className="text-right">
-                    <button onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all"><Trash2 size={20}/></button>
+                    <button aria-label={t.cancel} onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><Trash2 size={20}/></button>
                   </div>
                 </div>
               ))}
