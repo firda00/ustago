@@ -620,13 +620,14 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button onClick={() => setView('admin')} aria-label={t.admin} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
               onClick={() => setEditMode(!editMode)} 
-              className={`p-2 rounded-xl transition-all ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
+              className={`p-2 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
               title="Toggle Live Content Sync"
+              aria-label="Toggle Live Content Sync"
             >
               <Edit3 size={18} />
             </button>
@@ -860,7 +861,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
             {data.lat ? <T k="locationShared">{t.locationShared}</T> : <T k="shareLocation">{t.shareLocation}</T>}
           </button>
 
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} aria-label={t.back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -878,7 +879,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           <div className="space-y-1"><p className="text-[9px] md:text-[10px] font-black uppercase text-gray-400 px-2 tracking-widest"><T k="yearLabel">{t.yearLabel}</T></p>
             <input type="number" placeholder="2020" value={data.year} className="w-full bg-gray-50 p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] font-black text-sm text-center uppercase" onChange={e => setData({...data, year: e.target.value})} />
           </div>
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} aria-label={t.back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -925,7 +926,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           )}
 
           <div className="flex gap-3 md:gap-4 pt-4">
-            <button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button>
+            <button onClick={back} aria-label={t.back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button>
             {!data.isImmediate && (
               <button onClick={next} disabled={!data.date} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl disabled:opacity-20"><T k="next">{t.next}</T></button>
             )}
@@ -941,7 +942,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           <div className="space-y-1"><p className="text-[9px] md:text-[10px] font-black uppercase text-gray-400 px-2 tracking-widest"><T k="plateLabel">{t.plateLabel}</T>*</p>
             <input placeholder="01 A 777 AA" value={data.plate} className="w-full bg-gray-50 p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] font-black text-sm text-center uppercase" onChange={e => setData({...data, plate: e.target.value})} />
           </div>
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.phone || !data.plate} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} aria-label={t.back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.phone || !data.plate} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -959,7 +960,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
             <div className="h-px bg-white/10 my-4"></div>
             <div className="text-center italic pt-2"><span className="text-xl md:text-2xl font-black uppercase tracking-tighter"><T k="readySync">{t.readySync}</T></span></div>
           </div>
-          <div className="flex gap-3 md:gap-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={handleFinish} className="flex-1 bg-[#e31837] text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all"><CheckCircle2 size={18}/> <T k="submit">{t.submit}</T></button></div>
+          <div className="flex gap-3 md:gap-4"><button onClick={back} aria-label={t.back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={handleFinish} className="flex-1 bg-[#e31837] text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all"><CheckCircle2 size={18}/> <T k="submit">{t.submit}</T></button></div>
         </div>
       )}
     </div>
@@ -1682,7 +1683,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
             <Activity size={14} className="text-[#e31837]"/> System Online (UstaGo Node V3.4)
           </p>
         </div>
-        <button onClick={() => setView('dashboard')} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all"><ArrowLeft size={24}/></button>
+        <button onClick={() => setView('dashboard')} aria-label={t.back} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={24}/></button>
       </div>
 
       {/* Stats Cards */}
