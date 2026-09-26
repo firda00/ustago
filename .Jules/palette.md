@@ -1,0 +1,3 @@
+## 2025-02-28 - Logo Button Accessibility
+**Learning:** Found a non-interactive `div` with an `onClick` handler acting as the main navigation (home) button in the top navigation. This is an accessibility issue pattern as `div`s are not inherently focusable by keyboards nor announced properly as interactive buttons by screen readers.
+**Action:** Always convert generic interactive containers (like logos acting as links/buttons) to semantic `<button>` or `<a>` elements. Additionally, remember to supply an `aria-label` (leveraging existing localization like `t.home`) and apply consistent keyboard focus states, such as `focus-visible:ring-2 focus-visible:ring-black outline-none`.
