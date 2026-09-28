@@ -1,0 +1,3 @@
+## 2024-05-18 - Added Accessibility Attributes and Focus States to Core Controls
+**Learning:** Icon-only utility buttons (like Profile Admin Toggle, Logout, and View-Back buttons) often get overlooked for keyboard navigability when consolidating a React app into a single file structure (`index.tsx`). Relying solely on `hover:` states breaks the experience for keyboard users.
+**Action:** Always verify keyboard focus visibility. Applying `focus-visible:ring-2 focus-visible:ring-black outline-none` is a robust, non-intrusive way to ensure focus is obvious for keyboard users while remaining invisible to mouse users.
