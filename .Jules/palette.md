@@ -1,0 +1,3 @@
+## 2024-10-02 - Added Accessibility to Icon-Only Buttons
+**Learning:** Found multiple icon-only buttons (like Admin Dashboard, Log Out, and Back buttons) without ARIA labels and keyboard focus states. This makes the app harder to use for screen reader users and keyboard navigators.
+**Action:** Always add descriptive `aria-label`s and visible focus states (using Tailwind classes `focus-visible:ring-2 focus-visible:ring-black outline-none`) to buttons that lack text content.
