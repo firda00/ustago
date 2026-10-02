@@ -620,7 +620,7 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button onClick={() => setView('admin')} aria-label="Admin Dashboard" className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
@@ -860,7 +860,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
             {data.lat ? <T k="locationShared">{t.locationShared}</T> : <T k="shareLocation">{t.shareLocation}</T>}
           </button>
 
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button aria-label="Back" onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -878,7 +878,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           <div className="space-y-1"><p className="text-[9px] md:text-[10px] font-black uppercase text-gray-400 px-2 tracking-widest"><T k="yearLabel">{t.yearLabel}</T></p>
             <input type="number" placeholder="2020" value={data.year} className="w-full bg-gray-50 p-5 md:p-6 rounded-[1.5rem] md:rounded-[2rem] font-black text-sm text-center uppercase" onChange={e => setData({...data, year: e.target.value})} />
           </div>
-          <div className="flex gap-3 md:gap-4 pt-4"><button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
+          <div className="flex gap-3 md:gap-4 pt-4"><button aria-label="Back" onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button><button onClick={next} disabled={!data.year || parseInt(data.year) < 1990} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl"><T k="next">{t.next}</T></button></div>
         </div>
       )}
 
@@ -925,7 +925,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           )}
 
           <div className="flex gap-3 md:gap-4 pt-4">
-            <button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button>
+            <button aria-label="Back" onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button>
             {!data.isImmediate && (
               <button onClick={next} disabled={!data.date} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl disabled:opacity-20"><T k="next">{t.next}</T></button>
             )}
@@ -1409,7 +1409,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button aria-label="Log Out" onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-white outline-none">
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
