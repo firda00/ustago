@@ -1,0 +1,3 @@
+## 2024-05-19 - Accessible Icon-Only Buttons
+**Learning:** Found several icon-only buttons (like `ArrowLeft`, `LogOut`, `Send`, `Trash2`) without `aria-label` and `focus-visible` styles, making them inaccessible for screen readers and keyboard users. Added translation-based `aria-label` with fallback text and Tailwind `focus-visible:ring-2` to all to ensure better accessibility and usability.
+**Action:** Always ensure any button that only contains an icon has a descriptive `aria-label` and a visible focus state (`focus-visible:ring-2`) across the application to conform to UX accessibility standards.
