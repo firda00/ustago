@@ -1,0 +1,3 @@
+## 2023-10-27 - [Semantic Navigation & Accessibility]
+**Learning:** This codebase historically used an anti-pattern of non-semantic clickable divs for top-level navigation (like the main logo) and icon buttons without `aria-label`s. Furthermore, the top navigation elements lacked proper focus indicators for keyboard users.
+**Action:** Always ensure that interactive layout components use semantic HTML `<button>` tags with appropriate `aria-label` attributes (e.g., using translation keys `t.home || 'Home'`). Additionally, apply the Tailwind utility classes `focus-visible:ring-2 focus-visible:ring-black outline-none` to ensure consistent keyboard accessibility focus states.
