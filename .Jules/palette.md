@@ -1,0 +1,3 @@
+## 2026-10-18 - Navigation Accessibility Enhancement
+**Learning:** The codebase historically used an anti-pattern of non-semantic clickable `div` elements for top-level navigation components like logos. Additionally, icon-only buttons lacked essential `aria-label` attributes and keyboard users didn't have adequate focus states when tabbing through the navigation bar.
+**Action:** Replaced the clickable logo `div` with a semantic `<button>` tag. Added robust `aria-label` attributes with translation fallbacks to the logo and icon-only admin buttons. Standardized keyboard accessibility by applying `focus-visible:ring-2 focus-visible:ring-black outline-none` utility classes to interactive elements in the top navigation.
