@@ -604,7 +604,7 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-white pb-24 transition-colors duration-500 text-black">
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 px-6 flex justify-between items-center ${scrolled || view !== 'landing' ? 'glass-nav border-b border-gray-100 shadow-sm' : 'bg-transparent'}`}>
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setView('landing')}>
+        <div className="flex items-center gap-3 cursor-pointer group focus-visible:ring-2 focus-visible:ring-black outline-none" tabIndex={0} onClick={() => setView('landing')} aria-label={t.home || 'Home'}>
           <div className="bg-[#e31837] p-2.5 rounded-2xl shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
             <Wrench size={20} className="text-white"/>
           </div>
@@ -620,12 +620,13 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button onClick={() => setView('admin')} aria-label={t.adminTerminal || 'Admin Terminal'} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
               onClick={() => setEditMode(!editMode)} 
-              className={`p-2 rounded-xl transition-all ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
+              aria-label="Toggle Live Content Sync"
+              className={`p-2 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
               title="Toggle Live Content Sync"
             >
               <Edit3 size={18} />
@@ -925,7 +926,7 @@ const QuoteFlow = ({ t, lang, step, setStep, session }: any) => {
           )}
 
           <div className="flex gap-3 md:gap-4 pt-4">
-            <button onClick={back} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400"><ArrowLeft size={20}/></button>
+            <button onClick={back} aria-label={t.back || 'Back'} className="p-5 md:p-6 bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] text-gray-400 focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={20}/></button>
             {!data.isImmediate && (
               <button onClick={next} disabled={!data.date} className="flex-1 bg-black text-white rounded-[1.5rem] md:rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-xl disabled:opacity-20"><T k="next">{t.next}</T></button>
             )}
@@ -984,7 +985,7 @@ const ServiceView = ({ t, lang, setView, setStep }: any) => {
                 <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">Expert Mobile Support</p>
               </div>
             </div>
-            <button onClick={() => { setStep(1); setView('landing'); }} className="p-6 md:p-8 bg-black text-white rounded-[1.5rem] md:rounded-[2.5rem] hover:bg-[#e31837] active:scale-95 transition-all shadow-xl group-hover:translate-x-2"><ChevronRight size={24}/></button>
+            <button onClick={() => { setStep(1); setView('landing'); }} aria-label={t.home || 'Home'} className="p-6 md:p-8 bg-black text-white rounded-[1.5rem] md:rounded-[2.5rem] hover:bg-[#e31837] active:scale-95 transition-all shadow-xl group-hover:translate-x-2 focus-visible:ring-2 focus-visible:ring-black outline-none"><ChevronRight size={24}/></button>
           </div>
         ))}
       </div>
@@ -1113,7 +1114,7 @@ const SupportView = ({ t }: any) => {
           </div>
           <div className="p-4 md:p-8 bg-white border-t border-gray-100 flex gap-3 md:gap-4">
             <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && send()} placeholder="Transmit protocol..." className="flex-1 bg-gray-50 p-4 md:p-5 rounded-xl md:rounded-2xl text-sm font-black uppercase text-center outline-none focus:ring-4 ring-[#e31837]/10" />
-            <button onClick={send} className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95"><Send size={20}/></button>
+            <button onClick={send} aria-label={t.submit || 'Submit'} className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95 focus-visible:ring-2 focus-visible:ring-black outline-none"><Send size={20}/></button>
           </div>
        </div>
     </div>
@@ -1409,7 +1410,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button onClick={onLogout} aria-label={t.logout || 'Log Out'} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-black outline-none">
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
@@ -1532,7 +1533,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
                       <p className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4"><T k="rateMaster">{t.rateMaster}</T></p>
                       <div className="flex justify-center gap-2">
                         {[1, 2, 3, 4, 5].map(star => (
-                          <button key={star} onClick={() => handleRate(l.id, l.masterId, star)} className="text-gray-300 hover:text-yellow-400 transition-colors"><Star size={28} className="fill-current" /></button>
+                          <button key={star} onClick={() => handleRate(l.id, l.masterId, star)} aria-label={`Rate ${star} stars`} className="text-gray-300 hover:text-yellow-400 transition-colors focus-visible:ring-2 focus-visible:ring-black outline-none"><Star size={28} className="fill-current" /></button>
                         ))}
                       </div>
                     </div>
@@ -1682,7 +1683,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
             <Activity size={14} className="text-[#e31837]"/> System Online (UstaGo Node V3.4)
           </p>
         </div>
-        <button onClick={() => setView('dashboard')} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all"><ArrowLeft size={24}/></button>
+        <button onClick={() => setView('dashboard')} aria-label={t.back || 'Back'} className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:text-black transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><ArrowLeft size={24}/></button>
       </div>
 
       {/* Stats Cards */}
@@ -1799,7 +1800,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
                     />
                   </div>
                   <div className="text-right">
-                    <button onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all"><Trash2 size={20}/></button>
+                    <button onClick={() => removeService(s.id)} aria-label="Remove Service" className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><Trash2 size={20}/></button>
                   </div>
                 </div>
               ))}
