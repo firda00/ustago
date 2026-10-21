@@ -1,0 +1,3 @@
+## 2024-10-21 - Navigation Semantic & Focus Anti-Patterns
+**Learning:** Found an accessibility anti-pattern specific to this app's primary navigation in `index.tsx`: interactive elements (like the USTA.GO logo) are often built as non-semantic `div` elements with `onClick` handlers, lacking keyboard focus rings and `aria-label`s for screen readers. Icon-only utility buttons also frequently lack `aria-label` and `focus-visible` styling.
+**Action:** When adding or modifying navigation items or icon buttons in this repository, always wrap them in semantic `<button>` tags, provide safe fallbacks for `aria-label`, and enforce focus states using `focus-visible:ring-2 focus-visible:ring-black outline-none`.
