@@ -1,0 +1,3 @@
+## 2024-03-21 - [Navigation A11y Anti-pattern]
+**Learning:** The codebase previously used an anti-pattern of non-semantic clickable divs for top-level navigation, particularly for the main logo/home link. Icon-only buttons also frequently lack semantic labels.
+**Action:** When creating or modifying interactive layout components like navigation or headers, always ensure they use semantic HTML `<button>` tags with appropriate `aria-label` attributes and include keyboard focus utility classes like `focus-visible:ring-2`.
