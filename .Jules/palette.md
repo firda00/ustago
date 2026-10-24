@@ -1,0 +1,3 @@
+## 2024-03-01 - Replace Clickable Divs and Icon Buttons with Accessible semantic buttons
+**Learning:** The application extensively used an anti-pattern of non-semantic clickable `div` elements for top-level navigation, and icon buttons (like `BarChart3` and `Edit3` from lucide-react) without `aria-label`s. This pattern creates significant accessibility barriers for keyboard and screen reader users.
+**Action:** When working on navigation or icon components in this codebase, always convert clickable divs to semantic `<button>` tags, provide localized or hardcoded string fallbacks for `aria-label` attributes, and apply `focus-visible:ring-2 focus-visible:ring-black outline-none` classes (with `focus-visible:ring-offset-2` for dark backgrounds).
