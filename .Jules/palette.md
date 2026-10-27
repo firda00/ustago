@@ -1,0 +1,3 @@
+## 2025-02-28 - Top-Level Brand Logo Navigation Wrapper
+**Learning:** Top-level interactive brand logos acting as "Home" buttons were historically implemented as non-semantic `div`s, which completely lacked keyboard accessibility, focus state indication, and screen reader announcements.
+**Action:** Replaced the non-semantic `div` wrappers with semantic `<button>` tags. Added `aria-label` utilizing the application's localized string fallback (e.g., `t.home || 'Home'`), and added `focus-visible:ring-2 focus-visible:ring-black outline-none rounded-xl p-1 -ml-1` to ensure a consistent keyboard interaction experience without causing layout shift.
