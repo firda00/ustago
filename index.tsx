@@ -604,12 +604,16 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-white pb-24 transition-colors duration-500 text-black">
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 px-6 flex justify-between items-center ${scrolled || view !== 'landing' ? 'glass-nav border-b border-gray-100 shadow-sm' : 'bg-transparent'}`}>
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setView('landing')}>
+        <button
+          className="flex items-center gap-3 cursor-pointer group focus-visible:ring-2 focus-visible:ring-black outline-none rounded-xl"
+          onClick={() => setView('landing')}
+          aria-label={t.home || 'Home'}
+        >
           <div className="bg-[#e31837] p-2.5 rounded-2xl shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
             <Wrench size={20} className="text-white"/>
           </div>
           <span className="text-xl md:text-2xl font-black uppercase tracking-tighter italic text-black">USTA.GO</span>
-        </div>
+        </button>
         
         <div className="hidden lg:flex gap-8 items-center">
            <button onClick={() => setView('service')} className="text-[10px] font-black uppercase tracking-widest hover:text-[#e31837] transition-colors"><T k="serviceList">{t.serviceList}</T></button>
@@ -620,13 +624,20 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button
+              onClick={() => setView('admin')}
+              className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 outline-none"
+              aria-label={t.admin || 'Admin'}
+            >
+              <BarChart3 size={18} />
+            </button>
           )}
           {session?.role === 'admin' && (
             <button 
               onClick={() => setEditMode(!editMode)} 
-              className={`p-2 rounded-xl transition-all ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
+              className={`p-2 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none ${editMode ? 'bg-[#e31837] text-white animate-pulse' : 'bg-gray-100 text-gray-500 hover:text-black'}`}
               title="Toggle Live Content Sync"
+              aria-label="Toggle Live Content Sync"
             >
               <Edit3 size={18} />
             </button>
