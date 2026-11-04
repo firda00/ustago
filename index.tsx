@@ -604,12 +604,16 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-white pb-24 transition-colors duration-500 text-black">
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 px-6 flex justify-between items-center ${scrolled || view !== 'landing' ? 'glass-nav border-b border-gray-100 shadow-sm' : 'bg-transparent'}`}>
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => setView('landing')}>
+        <button
+          aria-label={t.home || 'Home'}
+          className="flex items-center gap-3 cursor-pointer group focus-visible:ring-2 focus-visible:ring-black outline-none rounded-xl"
+          onClick={() => setView('landing')}
+        >
           <div className="bg-[#e31837] p-2.5 rounded-2xl shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
             <Wrench size={20} className="text-white"/>
           </div>
           <span className="text-xl md:text-2xl font-black uppercase tracking-tighter italic text-black">USTA.GO</span>
-        </div>
+        </button>
         
         <div className="hidden lg:flex gap-8 items-center">
            <button onClick={() => setView('service')} className="text-[10px] font-black uppercase tracking-widest hover:text-[#e31837] transition-colors"><T k="serviceList">{t.serviceList}</T></button>
@@ -1409,7 +1413,11 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button
+            aria-label={t.logout || 'Log Out'}
+            onClick={onLogout}
+            className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black outline-none"
+          >
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
