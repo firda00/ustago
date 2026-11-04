@@ -1,0 +1,3 @@
+## 2024-11-04 - Semantic Top-Level Navigation and Dashboard Actions
+**Learning:** The codebase historically used an anti-pattern of non-semantic clickable divs for top-level navigation (like the brand logo) and lacked aria-labels and focus states for icon buttons (like LogOut in the dashboard), causing screen readers and keyboard navigation to fail or lack context.
+**Action:** When creating or modifying interactive layout components, always ensure they use semantic HTML `<button>` tags with appropriate `aria-label` attributes and standard Tailwind focus utility classes (e.g. `focus-visible:ring-2 focus-visible:ring-black outline-none`, and optionally `focus-visible:ring-offset-2` for dark backgrounds).
