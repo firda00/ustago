@@ -1,0 +1,3 @@
+## 2026-11-05 - [Semantic Button for Logo Navigation]
+**Learning:** [The codebase historically used an anti-pattern of non-semantic clickable divs for top-level navigation, particularly for the logo. This caused accessibility issues as screen readers would not announce the element as interactive and keyboard users could not tab to it.]
+**Action:** [Refactored the logo navigation div to a semantic `<button>` tag, added an `aria-label` with fallback, and applied standard keyboard focus styles (`focus-visible:ring-2 focus-visible:ring-black outline-none`). Ensure all interactive elements, even seemingly non-standard ones like logos, use native semantic interactive tags.]
