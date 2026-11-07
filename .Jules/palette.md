@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessibility for Icon-only Buttons
+**Learning:** Icon-only navigation buttons (like the recurring back button in multi-step flows and action buttons like delete) were entirely unlabelled and lacked keyboard focus indicators, rendering them invisible to screen readers and difficult for keyboard users to track.
+**Action:** When implementing icon-only interactive elements, always provide an `aria-label` with localized fallback (e.g., `aria-label={t.back || 'Back'}`) and apply consistent focus states like `focus-visible:ring-2 focus-visible:ring-black outline-none` to ensure keyboard navigation visibility.
