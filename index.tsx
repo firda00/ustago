@@ -620,7 +620,7 @@ const AppContent = () => {
 
         <div className="flex items-center gap-3">
           {session?.role === 'admin' && (
-            <button onClick={() => setView('admin')} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all"><BarChart3 size={18} /></button>
+            <button onClick={() => setView('admin')} aria-label={t.admin || 'Admin'} className="p-2 bg-black text-white rounded-xl hover:bg-[#e31837] transition-all focus-visible:ring-2 focus-visible:ring-black outline-none focus-visible:ring-offset-2"><BarChart3 size={18} /></button>
           )}
           {session?.role === 'admin' && (
             <button 
@@ -1113,7 +1113,7 @@ const SupportView = ({ t }: any) => {
           </div>
           <div className="p-4 md:p-8 bg-white border-t border-gray-100 flex gap-3 md:gap-4">
             <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && send()} placeholder="Transmit protocol..." className="flex-1 bg-gray-50 p-4 md:p-5 rounded-xl md:rounded-2xl text-sm font-black uppercase text-center outline-none focus:ring-4 ring-[#e31837]/10" />
-            <button onClick={send} className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95"><Send size={20}/></button>
+            <button onClick={send} aria-label="Send message" className="p-4 md:p-5 bg-black text-white rounded-xl md:rounded-2xl hover:bg-[#e31837] transition-all shadow-xl active:scale-95 focus-visible:ring-2 focus-visible:ring-black outline-none focus-visible:ring-offset-2"><Send size={20}/></button>
           </div>
        </div>
     </div>
@@ -1409,7 +1409,7 @@ const DashboardView = ({ t, lang, session, onLogout, setView, onUpdateSession }:
               </button>
             </div>
           </div>
-          <button onClick={onLogout} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white">
+          <button onClick={onLogout} aria-label={t.logout || 'Sign Out'} className="w-16 h-16 md:w-20 md:h-20 bg-white/5 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center hover:bg-red-600/30 active:scale-90 transition-all border border-white/5 group shadow-inner text-white focus-visible:ring-2 focus-visible:ring-black outline-none focus-visible:ring-offset-2">
             <LogOut size={32} className="group-hover:text-red-500 transition-colors"/>
           </button>
         </div>
@@ -1799,7 +1799,7 @@ const AdminDashboardView = ({ t, lang, session, setView }: any) => {
                     />
                   </div>
                   <div className="text-right">
-                    <button onClick={() => removeService(s.id)} className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all"><Trash2 size={20}/></button>
+                    <button onClick={() => removeService(s.id)} aria-label="Remove" className="p-3 text-red-500 hover:bg-red-50 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-black outline-none"><Trash2 size={20}/></button>
                   </div>
                 </div>
               ))}
