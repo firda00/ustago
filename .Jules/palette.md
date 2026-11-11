@@ -1,0 +1,3 @@
+## 2024-05-24 - Semantic Navigation & Keyboard Accessibility
+**Learning:** Top and bottom navigation items (including the logo acting as home) frequently missed visual keyboard focus indicators, and interactive logos used non-semantic `div` tags without ARIA attributes, breaking navigation for keyboard-only and screen reader users.
+**Action:** Replaced non-semantic clickable divs with `button` tags including proper `aria-label`s. Standardized keyboard focus by applying `focus-visible:ring-2 focus-visible:ring-black outline-none` across all primary navigation items and tab bars to ensure consistent accessibility.
